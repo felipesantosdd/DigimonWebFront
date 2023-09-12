@@ -10,7 +10,28 @@ export const DigimonContext = createContext<DigimonContextProps>({} as DigimonCo
 
 
 export function DigimonProvider({ children }: DigimonProviderType) {
-    const [digimon, setDigimon] = useState<IDigimon>({})
+    const [digimon, setDigimon] = useState<IDigimon>({
+        id: "",
+        hp: 0,
+        sprite: "",
+        name: "",
+        form: 0,
+        mp: 0,
+        atualMp: 0,
+        evolutionAttack: 0,
+        atualHp: 0,
+        defense: 0,
+        speed: 0,
+        image: "",
+        aptitude: 0,
+        love: 0,
+        health: 0,
+        evolutionHp: 0,
+        evolutionMp: 0,
+        evolutionDefense: 0,
+        evolutionSpeed: 0,
+        evolutionAptitude: 0
+    })
 
 
 
