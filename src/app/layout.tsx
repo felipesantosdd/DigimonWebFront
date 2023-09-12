@@ -1,4 +1,3 @@
-"use client"
 import { TamerProvider } from '@/contexts/tamerContext'
 import './globals.css'
 import type { Metadata } from 'next'
