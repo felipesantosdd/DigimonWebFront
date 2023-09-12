@@ -18,7 +18,7 @@ const Appbar = () => {
 
     return (
         <div className='bg-yellow-300 top-0 absolute w-[100%] p-3 flex row justify-between  ' >
-            <div className='flex items-center  '>
+            <div className='flex items-center w-[80%] '>
                 <img width={500} height={300} src={tamerData?.image} alt="Imagem do tamer" className='w-12  rounded' />
                 <div className='mx-5 '>
                     <div>{tamerData?.name}</div>
