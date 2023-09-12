@@ -8,7 +8,7 @@ const Bar = ({ color, name, percent, current }: { color: string, name: string, c
             ) : null}
 
             <div className="w-60 bg-gray-200 rounded-full h-2.5 dark:bg-gray-700">
-                <div className="bg-blue-600 h-2.5 rounded-full" style={{ width: `${percent}%` }}></div>
+                <div className={`bg-${color}-600 h-2.5 rounded-full`} style={{ width: `${percent}%` }}></div>
             </div>
             <span className={`text-sm ml-2 font-medium text-${color}-700 dark:text-white`}>{current}</span>
         </div>

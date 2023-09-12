@@ -1,3 +1,4 @@
+import { ITamer } from '@/interfaces/tamer';
 export interface IDigimon {
     id: string;
     hp: number;
@@ -19,4 +20,5 @@ export interface IDigimon {
     evolutionDefense: number;
     evolutionSpeed: number;
     evolutionAptitude: number;
+    tamer: ITamer
 }
