@@ -10,7 +10,7 @@ import { TamerContext } from '@/contexts/tamerContext';
 
 const Register = () => {
 
-    const { login, setLogin } = useContext(TamerContext)
+    const { setLogin, Register } = useContext(TamerContext)
 
     const schema = yup.object({
         nickname: yup.string().required("O Nickname é obrigatorio"),
@@ -25,7 +25,7 @@ const Register = () => {
     })
 
     function register(data: IRegister) {
-        console.log(data)
+        Register(data)
     }
 
     return (
@@ -48,7 +48,6 @@ const Register = () => {
                             label='Nome'
                             variant='standard'
                             autoComplete='false'
-                            value={value}
                             className='mb-1'
                             onChange={onChange}
                         />
@@ -65,7 +64,6 @@ const Register = () => {
                             label='Nickname'
                             variant='standard'
                             autoComplete='false'
-                            value={value}
                             className='mb-1'
                             onChange={onChange}
                         />
@@ -103,6 +101,7 @@ const Register = () => {
                             value={value}
                             className='mb-1'
                             onChange={onChange}
+                            type='password'
                         />
                     )
                 }}

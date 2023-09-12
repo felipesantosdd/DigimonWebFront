@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import React, { useContext, useEffect } from 'react'
 import * as yup from 'yup'
 import { yupResolver } from '@hookform/resolvers/yup'
 import { useForm, Controller } from 'react-hook-form'
@@ -9,12 +9,10 @@ import { ILogin } from '@/interfaces/tamer';
 
 const Login = () => {
 
-    const { Tamer, setLogin } = useContext(TamerContext)
-
-
+    const { Login, Authentication, tamerData, setLogin, setTamerData } = useContext(TamerContext)
 
     const schema = yup.object({
-        nickname: yup.string().required("Qual o seu nickname"),
+        nick: yup.string().required("Qual o seu nickname"),
         password: yup.string().required("Informe o seu password")
     })
 
@@ -22,9 +20,16 @@ const Login = () => {
         resolver: yupResolver(schema)
     })
 
-    function handleLogin(data: ILogin): void {
-        Tamer.Login(data)
+    function handleLogin(data: ILogin) {
+        Login(data)
     }
+
+    useEffect(() => {
+        const auth = localStorage.getItem("authToken")
+        if (auth) {
+            window.location.href = '/home';
+        }
+    }, []);
 
     return (
         <div className=' w-[300px] h-[auto] flex flex-col justify-center text-center px-10 py-14' style={{
@@ -38,18 +43,16 @@ const Login = () => {
             <h1 className='font-bold text-white text-2xl '>Login</h1>
             <Controller
                 control={control}
-                name='nickname'
+                name='nick'
                 render={({ field: { onChange, value } }) => {
                     return <TextField
                         className='mb-3'
-                        name='nickname'
+                        name='nick'
                         label="Nickname"
                         variant="standard"
-                        autoComplete='false'
-                        value={value}
                         onChange={onChange} />
                 }} />
-            {errors.nickname && <h1 className='text-red-800'>{errors.nickname?.message}</h1>}
+            {errors.nick && <h1 className='text-red-800'>{errors.nick?.message}</h1>}
 
             <Controller
                 control={control}
@@ -60,7 +63,6 @@ const Login = () => {
                         name='password'
                         label="Password"
                         variant="standard"
-                        value={value}
                         type='password'
                         onChange={onChange} />
                 }}

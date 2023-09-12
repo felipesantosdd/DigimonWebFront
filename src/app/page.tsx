@@ -7,11 +7,11 @@ import { useContext, useState } from 'react'
 
 export default function Home() {
 
-  const { login } = useContext(TamerContext)
+  const { login, tamerData } = useContext(TamerContext)
 
   return (
     <main
-      className="flex min-h-screen flex-col items-center justify-between p-24"
+      className="flex min-h-screen flex-col items-center justify-between"
       style={{
         background: `url('https://static.vecteezy.com/system/resources/previews/001/987/871/non_2x/abstract-black-stripes-diagonal-background-free-vector.jpg')`,
         backgroundSize: 'center',
