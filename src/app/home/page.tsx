@@ -9,13 +9,9 @@ import React, { useContext, useEffect } from 'react';
 const Home = () => {
     const { tamerData, login, Authentication } = useContext(TamerContext);
 
-    // useEffect(() => {
-    //     try {
-    //         Authentication()
-    //     } catch (error) {
-    //         ErrorAlert("Faça Login para continuar")
-    //     }
-    // }, [])
+    useEffect(() => {
+        Authentication()
+    }, [])
 
     return (
         <div
