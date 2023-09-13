@@ -7,7 +7,7 @@ const EvolutionAnimation = () => {
 
     return (
 
-        <div className='absolute w-[360px] h-[530px] translate-y-[25%] flex-col justify-center overflow-hidden bg-transparent py-6 sm:py-12 z-40 items-center animate-bounce '>
+        <div className='absolute w-[360px] h-[530px] translate-y-[25%] flex-col justify-center overflow-hidden bg-transparent py-6 sm:py-12 z-40 items-center '>
             <div className="group h-[100%] w-[360px] [perspective:1000px] ">
                 <div className="relative h-full w-full rounded-x1 shadow-x1 transition-all duration-500 [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)] ">
                     <div className='absolute inset-0'>
