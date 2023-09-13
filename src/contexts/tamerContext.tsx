@@ -16,6 +16,8 @@ export const TamerContext = createContext<ITamerContextProps>({} as ITamerContex
 
 export function TamerProvider({ children }: ITamerProviderType) {
 
+    const [menu, setMenu] = useState<number>(0)
+
     const [tamerData, setTamerData] = useState<ITamer | any>();
 
     const [login, setLogin] = useState<number>(1)
@@ -62,7 +64,6 @@ export function TamerProvider({ children }: ITamerProviderType) {
     }
 
     useEffect(() => {
-        console.log()
     }, [tamerData])
 
     return (
@@ -70,11 +71,12 @@ export function TamerProvider({ children }: ITamerProviderType) {
             login,
             setTamerData,
             setLogin,
+            menu,
+            setMenu,
             tamerData,
             Login,
             Register,
             Authentication
-
         }}> {children}</TamerContext.Provider >
     )
 }

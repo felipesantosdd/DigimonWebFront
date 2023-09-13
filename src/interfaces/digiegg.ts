@@ -20,5 +20,6 @@ export interface IDigimon {
     evolutionDefense: number;
     evolutionSpeed: number;
     evolutionAptitude: number;
-    tamer?: ITamer
+    tamer?: ITamer;
+    evolutions?: IDigimon[]
 }

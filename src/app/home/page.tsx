@@ -1,14 +1,14 @@
 "use client"
 import Appbar from '@/components/appbar';
 import DigimonBox from '@/components/digimonBox';
-import ErrorAlert from '@/components/errorAlert';
 import MainMenu from '@/components/mainMenu';
+import MenuEvolutions from '@/components/menuEvolutions';
 import { DigimonContext } from '@/contexts/digimonContext';
 import { TamerContext } from '@/contexts/tamerContext';
 import React, { useContext, useEffect } from 'react';
 
 const Home = () => {
-    const { tamerData, login, Authentication } = useContext(TamerContext);
+    const { tamerData, menu, Authentication } = useContext(TamerContext);
 
 
     useEffect(() => {
@@ -25,8 +25,10 @@ const Home = () => {
             }}>
             <Appbar />
 
-            <DigimonBox digiId={tamerData?.digimons[0]?.id} />
-            <MainMenu />
+            <DigimonBox digiId={tamerData?.digimons[1]?.id} />
+            {menu === 0 && (<MainMenu />)}
+            {menu === 1 && (<MenuEvolutions />)}
+
 
         </div>
     );

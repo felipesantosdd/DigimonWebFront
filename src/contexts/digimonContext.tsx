@@ -1,6 +1,8 @@
 "use client"
+import ErrorAlert from "@/components/errorAlert";
 import { IDigimon } from "@/interfaces/digiegg";
 import { DigimonContextProps, DigimonProviderType } from "@/interfaces/digimonContext";
+import { EvolutionService } from "@/services/digimon/digivolveService";
 import { GetOneService } from "@/services/digimon/getOneService";
 import { createContext, ReactNode, useState } from "react";
 
@@ -33,7 +35,11 @@ export function DigimonProvider({ children }: DigimonProviderType) {
         evolutionAptitude: 0
     })
 
-
+    function splitUrl(url: string) {
+        const lastDotIndex = url?.lastIndexOf('.');
+        const firstPart = url?.substring(0, lastDotIndex);
+        return firstPart
+    }
 
     class Digimon {
 
@@ -52,6 +58,19 @@ export function DigimonProvider({ children }: DigimonProviderType) {
                 const data = await GetOneService(id)
                 return data
             } catch (error: any) {
+                if (error?.response?.data?.message) {
+                    ErrorAlert(error?.response.data.message)
+                }
+                console.error(error.response.data.message)
+            }
+        }
+
+        static async Evolution(id: string, evoId: string): Promise<void> {
+            try {
+                const data = await EvolutionService(id, evoId)
+                setDigimon(data)
+                this.GetMyDigimon(data.id)
+            } catch (error: any) {
                 console.error(error.response.data)
             }
         }
@@ -60,10 +79,12 @@ export function DigimonProvider({ children }: DigimonProviderType) {
     return (
         <DigimonContext.Provider value={{
             digimon,
+            splitUrl,
             setDigimon,
             Digimon: {
                 GetOne: Digimon.GetOne,
-                GetMyDigimon: Digimon.GetMyDigimon
+                GetMyDigimon: Digimon.GetMyDigimon,
+                Evolution: Digimon.Evolution
             }
         }}>{children}</DigimonContext.Provider>
     )

@@ -5,7 +5,7 @@ import digibg from '../../assets/digibg.png'
 import Image from 'next/image';
 import Bar from './bar';
 
-const DigimonBox = ({ digiId }: { digiId: string }) => {
+const DigimonBox = ({ digiId }: { digiId: string }): Promise<any> => {
 
 
     const backgroundImageStyle = {
@@ -16,14 +16,9 @@ const DigimonBox = ({ digiId }: { digiId: string }) => {
         height: '100vh', // Ajuste a altura conforme necessário
     };
 
-    const { Digimon, digimon } = useContext(DigimonContext)
+    const { Digimon, digimon, splitUrl } = useContext(DigimonContext)
 
-    function splitUrl(url: string) {
-        const lastDotIndex = url?.lastIndexOf('.');
-        const firstPart = url?.substring(0, lastDotIndex);
-        const secondPart = url?.substring(lastDotIndex);
-        return firstPart
-    }
+
 
     useEffect(() => {
         if (digiId) {
