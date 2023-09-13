@@ -6,13 +6,17 @@ import Image from 'next/image';
 
 const MenuEvolutions = () => {
 
-    const { digimon, splitUrl, Digimon } = useContext(DigimonContext)
+    const { digimon, splitUrl, Digimon, setShowEvolution } = useContext(DigimonContext)
     const { setMenu } = useContext(TamerContext)
     const { Authentication } = useContext(TamerContext);
 
+    function evolution(evoId: string) {
+        Digimon.Evolution(digimon?.id, evoId)
+        setShowEvolution(true)
+    }
+
     useEffect(() => {
         Authentication()
-
     }, [])
 
     return (
@@ -22,7 +26,7 @@ const MenuEvolutions = () => {
                     return (
                         <div
                             key={evo.id}
-                            onClick={() => Digimon.Evolution(digimon?.id, evo?.id)}
+                            onClick={() => evolution(evo.id)}
                             className='w-12 h-12 bg-[#18272D] rounded-md'>
                             <img
                                 className='w-[120%] h-[120%]'

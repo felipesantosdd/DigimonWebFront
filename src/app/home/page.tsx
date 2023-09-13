@@ -1,6 +1,7 @@
 "use client"
 import Appbar from '@/components/appbar';
 import DigimonBox from '@/components/digimonBox';
+import EvolutionAnimation from '@/components/evolutionAnimation';
 import MainMenu from '@/components/mainMenu';
 import MenuEvolutions from '@/components/menuEvolutions';
 import { DigimonContext } from '@/contexts/digimonContext';
@@ -10,11 +11,19 @@ import React, { useContext, useEffect } from 'react';
 const Home = () => {
     const { tamerData, menu, Authentication } = useContext(TamerContext);
 
+    const { Digimon, showEvolution } = useContext(DigimonContext)
 
     useEffect(() => {
         Authentication()
-
     }, [])
+
+    function getDigimon() {
+        Digimon.GetMyDigimon(tamerData?.digimons[0].id)
+    }
+
+
+    setTimeout(Authentication, 60000);
+    setTimeout(getDigimon, 60000);
 
     return (
         <div
@@ -25,7 +34,9 @@ const Home = () => {
             }}>
             <Appbar />
 
-            <DigimonBox digiId={tamerData?.digimons[1]?.id} />
+            <DigimonBox digiId={tamerData?.digimons[0]?.id} />
+
+            {showEvolution && (<EvolutionAnimation />)}
             {menu === 0 && (<MainMenu />)}
             {menu === 1 && (<MenuEvolutions />)}
 
