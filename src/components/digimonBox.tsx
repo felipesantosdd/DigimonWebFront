@@ -5,7 +5,7 @@ import digibg from '../../assets/digibg.png'
 import Image from 'next/image';
 import Bar from './bar';
 
-const DigimonBox = ({ digiId }: { digiId: string }): Promise<any> => {
+const DigimonBox = ({ digiId }: { digiId: string }) => {
 
 
     const backgroundImageStyle = {
