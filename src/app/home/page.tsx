@@ -35,7 +35,7 @@ const Home = () => {
             <Appbar />
 
             <DigimonBox digiId={tamerData?.digimons[0]?.id} />
-            <h1 style={{color:"#fff", fontSize: "30px"}}>Ola mundo</h1>
+           
             {/*showEvolution && (<EvolutionAnimation />)*/}
             <MenuBottom /> {/* o menu principal, vamos colocar toda a logica do menu aqui dentro */}
             {/*menu === 1 && (<MenuEvolutions  />)*/} 
