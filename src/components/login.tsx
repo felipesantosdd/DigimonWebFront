@@ -32,7 +32,7 @@ const Login = () => {
     }, []);
 
     return (
-        <div className=' w-[300px] h-[auto] flex flex-col justify-center text-center px-10 py-14' style={{
+        <div className=' w-[300px] h-[auto] flex flex-col justify-center text-center px-10 py-14 ' style={{
             background: 'rgba(255, 255, 255, 0.2)',
             borderRadius: '16px',
             boxShadow: '0 4px 30px rgba(0, 0, 0, 0.1)',
@@ -75,7 +75,7 @@ const Login = () => {
                 className='m-2'
                 variant='contained'
                 onClick={handleSubmit(handleLogin)} >Login</Button>
-            <h4 className='text-blue-600 cursor-pointer' onClick={() => setLogin(0)}>Registre-se</h4>
+            <h4 className='text-red-600 cursor-pointer' onClick={() => setLogin(0)}>Registre-se</h4>
 
         </div>
     )

@@ -38,10 +38,14 @@ export function DigimonProvider({ children }: DigimonProviderType) {
         evolutionAptitude: 0
     })
 
-    function splitUrl(url: string) {
+    function splitUrl(url: string): string {
         const lastDotIndex = url?.lastIndexOf('.');
         const firstPart = url?.substring(0, lastDotIndex);
         return firstPart
+    }
+
+    function hello() {
+        return { message: "Hello" }
     }
 
     class Digimon {
