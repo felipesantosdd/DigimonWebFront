@@ -1,4 +1,5 @@
 "use client"
+import Backdrop from '@/components/backdrop'
 import Login from '@/components/login'
 import Register from '@/components/register'
 import { TamerContext } from '@/contexts/tamerContext'
@@ -7,7 +8,7 @@ import { useContext, useState } from 'react'
 
 export default function Home() {
 
-  const { login, tamerData } = useContext(TamerContext)
+  const { login, showBack } = useContext(TamerContext)
 
   return (
     <main
@@ -17,6 +18,7 @@ export default function Home() {
         backgroundSize: 'center',
       }}
     >
+      <Backdrop status={showBack} />
       <div className='flex flex-col justify-center text-center translate-y-[30%]'>
 
         {login === 1 ? <Login /> : <Register />}

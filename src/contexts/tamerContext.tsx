@@ -22,6 +22,8 @@ export function TamerProvider({ children }: ITamerProviderType) {
 
     const [login, setLogin] = useState<number>(1)
 
+    const [showBack, setShowBack] = useState(false)
+
     async function Authentication(): Promise<void> {
         try {
             const res = await AuthService();
@@ -31,6 +33,7 @@ export function TamerProvider({ children }: ITamerProviderType) {
 
         }
     }
+
 
     async function Register(data: IRegister) {
         try {
@@ -50,16 +53,19 @@ export function TamerProvider({ children }: ITamerProviderType) {
 
     async function Login(data: ILogin): Promise<void> {
         try {
+            setShowBack(true)
             const response = await LoginService(data)
             setTamerData(response.user)
             localStorage.setItem('authToken', response.token)
             window.location.href = '/home';
+            setShowBack(false)
         } catch (error: any) {
             if (error.response?.data.message) {
                 console.error(error.response.data.message)
                 ErrorAlert(error.response.data.message)
             }
             console.error(error)
+            setShowBack(false)
         }
     }
 
@@ -76,6 +82,8 @@ export function TamerProvider({ children }: ITamerProviderType) {
             tamerData,
             Login,
             Register,
+            showBack,
+            setShowBack,
             Authentication
         }}> {children}</TamerContext.Provider >
     )

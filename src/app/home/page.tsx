@@ -10,7 +10,7 @@ import { TamerContext } from '@/contexts/tamerContext';
 import React, { useContext, useEffect } from 'react';
 
 const Home = () => {
-    const { tamerData, menu, Authentication } = useContext(TamerContext);
+    const { tamerData, menu, Authentication, showBack } = useContext(TamerContext);
 
     const { Digimon, showEvolution, digimon } = useContext(DigimonContext)
 
@@ -35,7 +35,7 @@ const Home = () => {
                 background: `url('https://static.vecteezy.com/system/resources/previews/001/987/871/non_2x/abstract-black-stripes-diagonal-background-free-vector.jpg')`,
                 backgroundSize: 'center'
             }}>
-            <Backdrop />
+            <Backdrop status={showBack} />
             <Appbar />
 
 

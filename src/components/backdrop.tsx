@@ -1,16 +1,22 @@
-import React from 'react'
+import React from 'react';
 
-const Backdrop = () => {
-    return (
-        <div className='w-[100vw] h-[100vh] absolute bg-[#252525c4] z-50'>
-            <div className=' absolute top-[50%] left-[50%] h-[96px] rounded-full w-[96px] bg-[#9b59b6] '>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
+const Backdrop = ({ status }: { status: boolean }) => {
+    if (status) {
+        return (
+            <div className='w-[100vw] h-[100vh] absolute bg-[#252525c4] z-50 flex items-center'>
+                <div className='cube'>
+                    <div className='face front'></div>
+                    <div className='face back'></div>
+                    <div className='face right'></div>
+                    <div className='face left'></div>
+                    <div className='face top'></div>
+                    <div className='face bottom'></div>
+                </div>
             </div>
-        </div>
-    )
-}
+        );
+    }
 
-export default Backdrop
+    return null;
+};
+
+export default Backdrop;
