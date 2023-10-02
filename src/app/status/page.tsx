@@ -14,7 +14,7 @@ import speed from '../../../assets/icons/speed.png'
 import stamina from '../../../assets/icons/stamina.png'
 import statusBox from '../../../assets/icons/statusBox.png'
 
-const Status = ({ digiId }: { digiId: string }) => {
+const Status = () => {
 
     const { tamerData, menu, Authentication, showBack, setShowBack } = useContext(TamerContext);
 
