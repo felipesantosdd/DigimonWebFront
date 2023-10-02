@@ -46,27 +46,41 @@ const Status = () => {
             {menu === 0 && (<MainMenu />)}
 
             <div className='w-[100%] flex justify-center'>
+                <div className='absolute top-0 left-0 mb-32'>
+                    <Image src={statusBox} alt='title'></Image>
+                </div>
 
                 <div className='flex-col flex justify-center'>
-                    <div className='statisc top-0 mb-32'>
-                        <Image src={statusBox} alt='title'></Image>
-                    </div>
-                    <div className='flex flex-row  items-center justify-around h-40 min-w-[350px]'>
+                    <div className='flex flex-row  items-center justify-around h-40 '>
                         <div>
                             <div className='flex flex-row '>
-                                <div className=' border border-[#6A6566] w-16 h-9 border-r-0 bg-[#979711] text-white flex items-center justify-center'><span>HP</span></div>
-                                <div className='bg-[rgba(37,37,37,0.8)] border border-[#6A6566] w-20 h-9 text-white flex justify-end p-2 items-center'><span>{digimon.evolutionHp}</span></div>
+                                <div className=' border border-[#6A6566] w-16 h-9 border-r-0 bg-[#979711] text-white flex items-center justify-center'>
+                                    <span>HP</span>
+                                </div>
+
+                                <div className='bg-[rgba(37,37,37,0.8)] border border-[#6A6566] w-20 h-9 text-white flex justify-end p-2 items-center'>
+                                    <span>{digimon.evolutionHp}</span>
+                                </div>
                             </div>
+
                             <div className='flex flex-row'>
-                                <div className=' border border-[#6A6566] w-16 h-9 border-t-0 border-r-0 bg-[#4BA5C8] text-white flex items-center justify-center'><span>MP</span></div>
-                                <div className='bg-[rgba(37,37,37,0.8)] border border-[#6A6566] border-t-0 w-20 h-9 text-white flex justify-end p-2 items-center'><span>{digimon.evolutionMp}</span></div>
+                                <div className=' border border-[#6A6566] w-16 h-9 border-t-0 border-r-0 bg-[#4BA5C8] text-white flex items-center justify-center'>
+                                    <span>MP</span>
+                                </div>
+
+                                <div className='bg-[rgba(37,37,37,0.8)] border border-[#6A6566] border-t-0 w-20 h-9 text-white flex justify-end p-2 items-center'>
+                                    <span>{digimon.evolutionMp}</span>
+                                </div>
                             </div>
-                            <div className='mt-1  w-44 h-10 flex-row p-0 flex justify-start items-center'>
-                                <Image className='border border-[#6A6566] border-r-0 w-10 h-10' src={data} width={500} height={500} alt="Digimon Sprite" />
+
+                            <div className='bg-[rgba(37,37,37,0.8)] mt-1  w-44 h-10 flex-row p-0 flex justify-start items-center'>
+                                <Image className='border border-[#6A6566] border-r-0 w-10 h-10' src={data} width={500} height={500} alt="Digimon type" />
+
                                 <div>
                                     <div className='border bg-[rgba(37,37,37,0.8)]  border-[#4e4e4e] border-b-0 w-32 h-5 text-white flex items-center justify-center'>
                                         <span>Dragon</span>
                                     </div>
+
                                     <div className='border bg-[rgba(37,37,37,0.8)]  border-[#6A6566]  h-5 text-white flex items-center justify-center'>
                                         <span>Training</span>
                                     </div>
@@ -75,7 +89,7 @@ const Status = () => {
                         </div>
 
                         <div
-                            className='w-[300px] h-[300px] flex items-center justify-center ' >
+                            className='w-[300px] sm:w-[150px] h-[300px] flex items-center justify-center ' >
                             <img src={`${splitUrl(digimon?.sprite)}.gif`} alt="Digimon Sprite" />
                         </div>
                     </div>
