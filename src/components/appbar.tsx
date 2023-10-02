@@ -2,13 +2,13 @@
 import { TamerContext } from '@/contexts/tamerContext';
 import React, { useContext, useEffect } from 'react';
 import Bar from './bar';
-import exit from '../../assets/icons/exit.png'
+import icon from '../../assets/icons/icon.png'
 import Image from 'next/image';
 import SucessAlert from './sucessAlert';
 
 const Appbar = () => {
 
-    const { tamerData, login, Authentication } = useContext(TamerContext);
+    const { tamerData, login, Authentication, setShowMenu, showMenu } = useContext(TamerContext);
 
     function logOut() {
         localStorage.clear()
@@ -16,9 +16,16 @@ const Appbar = () => {
         SucessAlert('Faça Login para continuar')
     }
 
+    function seeMenu() {
+        setShowMenu(!showMenu)
+    }
+
     return (
-        <div className='bg-yellow-300 top-0 absolute w-[100%] p-3 flex row justify-between  ' >
-            <div className='flex items-center w-[80%] '>
+        <div className='bottom-0 absolute w-[100%] p-3 flex justify-end  ' >
+            <button onClick={seeMenu}>
+                <Image src={icon} alt='home' width={50} height={50} />
+            </button>
+            {/* <div className='flex items-center w-[80%] '>
                 <img width={500} height={300} src={tamerData?.image} alt="Imagem do tamer" className='w-12  rounded' />
                 <div className='mx-5 '>
                     <div>{tamerData?.name}</div>
@@ -30,7 +37,7 @@ const Appbar = () => {
                 width={50}
                 height={50}
                 src={exit} alt="exitIcon"
-                onClick={logOut} />
+                onClick={logOut} /> */}
         </div>
     )
 }

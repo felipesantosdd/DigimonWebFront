@@ -14,9 +14,28 @@ const config: Config = {
           'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
       },
       animation: {
-        'spin-slow': 'spin 20s linear infinite'
+        'spin-slow': 'spin 20s linear infinite',
+        'open-menu': 'openMenu 0.5s linear',
+        'close-menu': 'closeMenu 0.5s linear',
       },
-
+      keyframes: {
+        openMenu: {
+          "0%": {
+            transform: "translateX(-300px)", opacity: "1"
+          },
+          "100%": {
+            transform: "translateX(0px)", opacity: "1"
+          }
+        },
+        closeMenu: {
+          "0%": {
+            transform: "translateX(0px)", opacity: "1"
+          },
+          "100%": {
+            transform: "translateX(-300px)", opacity: "1"
+          }
+        }
+      },
       gradientColorStops: {
         'pink': '#FF69B4',
         'blue': '#0000FF',

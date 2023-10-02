@@ -31,11 +31,22 @@ const DigimonBox = ({ digiId }: { digiId: string }) => {
 
             <img src={`${splitUrl(digimon?.sprite)}.gif`} alt="Digimon Sprite" />
 
-            <Image width={500} height={500} src={digibg} alt="Digimon Sprite" className='absolute z-[-2] fill-dark animate-spin-slow  min-h-[500px] min-w-[500px] ' />
+            {/* <Image width={500} height={500} src={digibg} alt="Digimon Sprite" className='absolute z-[-2] fill-dark animate-spin-slow  min-h-[500px] min-w-[500px] ' /> */}
+            <div>
+                <div className='flex items-center flex-row'>
+                    <span className='mr-2 font-bold text-[#fff]'>HP</span>
+                    <div className=' rounded-full w-[300px] h-3  bg-[#252525]' >
+                        <div className={`rounded-full w-[${(digimon?.atualHp / digimon?.evolutionHp) * 100}%] h-[100%] bg-red-600`}></div>
+                    </div>
+                </div>
+                <div className='flex items-center flex-row'>
+                    <span className='mr-2 font-bold text-[#fff]'>SP</span>
+                    <div className=' rounded-full w-[300px] h-3  bg-[#252525]' >
+                        <div className={`rounded-full w-[${(digimon?.atualMp / digimon?.evolutionMp) * 100}%] h-[100%] bg-blue-600`}></div>
+                    </div>
+                </div>
 
-            <Bar color='red' name='HP' percent={(digimon?.atualHp / digimon?.evolutionHp) * 100} current={`${digimon?.atualHp}/${digimon?.evolutionHp}`} />
-            <Bar color='blue' name='MP' percent={(digimon?.atualMp / digimon?.evolutionMp) * 100} current={`${digimon?.atualMp}/${digimon?.evolutionMp}`} />
-
+            </div>
         </div>
     )
 }

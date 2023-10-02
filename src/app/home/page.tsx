@@ -10,11 +10,9 @@ import { TamerContext } from '@/contexts/tamerContext';
 import React, { useContext, useEffect } from 'react';
 
 const Home = () => {
-    const { tamerData, menu, Authentication, showBack } = useContext(TamerContext);
+    const { tamerData, menu, Authentication, showBack, setShowBack } = useContext(TamerContext);
 
     const { Digimon, showEvolution, digimon } = useContext(DigimonContext)
-
-
 
     useEffect(() => {
         Authentication()
@@ -32,8 +30,11 @@ const Home = () => {
         <div
             className='flex justify-center w-[100vw] h-[100vh] overflow-hidden m-0 p-0 '
             style={{
-                background: `url('https://static.vecteezy.com/system/resources/previews/001/987/871/non_2x/abstract-black-stripes-diagonal-background-free-vector.jpg')`,
-                backgroundSize: 'center'
+                background: `url('https://image3.cdn2.seaart.ai/2023-09-30/18618260520967173/71daf74c937097dce438c77d448fe22ea6be24bc.png')`,
+                backgroundPosition: 'bottom',
+                backgroundSize: 'cover',
+
+
             }}>
             <Backdrop status={showBack} />
             <Appbar />

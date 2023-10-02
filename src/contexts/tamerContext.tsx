@@ -18,6 +18,8 @@ export function TamerProvider({ children }: ITamerProviderType) {
 
     const [menu, setMenu] = useState<number>(0)
 
+    const [showMenu, setShowMenu] = useState(false)
+
     const [tamerData, setTamerData] = useState<ITamer | any>();
 
     const [login, setLogin] = useState<number>(1)
@@ -58,7 +60,6 @@ export function TamerProvider({ children }: ITamerProviderType) {
             setTamerData(response.user)
             localStorage.setItem('authToken', response.token)
             window.location.href = '/home';
-            setShowBack(false)
         } catch (error: any) {
             if (error.response?.data.message) {
                 console.error(error.response.data.message)
@@ -74,6 +75,8 @@ export function TamerProvider({ children }: ITamerProviderType) {
 
     return (
         <TamerContext.Provider value={{
+            showMenu,
+            setShowMenu,
             login,
             setTamerData,
             setLogin,
