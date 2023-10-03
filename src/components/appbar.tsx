@@ -21,7 +21,7 @@ const Appbar = () => {
     }
 
     return (
-        <div className='bottom-0 absolute w-[100%] p-3 flex justify-end  ' >
+        <div className='top-4 absolute w-[100%] p-3 flex z-10 justify-end  ' >
             <button onClick={seeMenu}>
                 <Image src={icon} alt='home' width={50} height={50} />
             </button>

@@ -39,15 +39,18 @@ const DigimonBox = ({ digiId }: { digiId: string }) => {
                     <span className='mr-2 font-bold text-[#fff]'>HP</span>
                     <div className=' rounded-full w-[300px] h-3  bg-[#252525]' >
                         <div
-                            className={`rounded-full w-[${(digimon?.atualHp / digimon?.evolutionHp) * 100}%] h-[100%] bg-red-600`}
-
-                        />
+                            className={`text-white text-xs flex items-center justify-center  rounded-full h-[100%] bg-red-600`}
+                            style={{ width: `${(digimon?.atualHp / digimon?.evolutionHp) * 100}%` }}>
+                            <span>{`${digimon.atualHp}/${digimon.evolutionHp}`}</span>
+                        </div>
                     </div>
                 </div>
                 <div className='flex items-center flex-row'>
                     <span className='mr-2 font-bold text-[#fff]'>SP</span>
                     <div className=' rounded-full w-[300px] h-3  bg-[#252525]' >
-                        <div className={`rounded-full w-[${(digimon?.atualMp / digimon?.evolutionMp) * 100}%] h-[100%] bg-blue-600`}></div>
+                        <div className={`text-white text-xs flex items-center justify-center rounded-full h-[100%] bg-blue-600`} style={{ width: `${(digimon?.atualMp / digimon?.evolutionMp) * 100}%` }}>
+                            <span>{`${digimon.atualMp}/${digimon.evolutionMp}`}</span>
+                        </div>
                     </div>
                 </div>
 

@@ -96,7 +96,7 @@ const Resistances = () => {
 
             return (
                 <div key={element} className='h-16 w-16 m-2 flex justify-around items-center flex-col'>
-                    <Image className='w-10 h-10 ' src={elementInfo.imageSrc} alt={elementInfo.name} />
+                    <Image className='w-10 ' src={elementInfo.imageSrc} alt={elementInfo.name} />
                     <span>{value}</span>
                 </div>
             );

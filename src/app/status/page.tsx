@@ -17,6 +17,7 @@ import statusBox from '../../../assets/icons/statusBox.png'
 import unknown from '../../../assets/icons/unknown000.png'
 import { IDigimon } from '@/interfaces/digimon';
 import Resistances from '@/components/Resistances';
+import Hood from '@/components/hood';
 
 
 const Status = () => {
@@ -203,7 +204,24 @@ const Status = () => {
                             </div>
 
                             <div className='bg-[rgba(37,37,37,0.8)] mt-1  w-44 h-10 flex-row p-0 flex justify-start items-center'>
-                                <Image className='border border-[#6A6566] border-r-0 w-10 h-10' src={data} width={500} height={500} alt="Digimon type" />
+                                <Image
+                                    className='border border-[#6A6566] border-r-0 w-10 h-10'
+                                    src={
+                                        (() => {
+                                            switch (form?.attribute) {
+                                                case 'data':
+                                                    return data;
+                                                case 'virus':
+                                                    return virus;
+                                                case 'vaccine':
+                                                    return vaccine;
+                                                default:
+                                                    return unknown;
+                                            }
+                                        })()
+                                    } width={500}
+                                    height={500}
+                                    alt="Digimon type" />
 
                                 <div>
                                     <div className='border bg-[rgba(37,37,37,0.8)]  border-[#4e4e4e] border-b-0 w-36 h-5 text-white flex items-center justify-center'>
@@ -383,10 +401,8 @@ const Status = () => {
                                 <span>Mega</span>
                             </div>
                         </div>
-
-
-
                     </div>
+                    <Hood digiEgg={digimon}></Hood>
                 </div>
             </div>
 

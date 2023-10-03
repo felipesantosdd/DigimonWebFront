@@ -66,7 +66,8 @@ export function DigimonProvider({ children }: DigimonProviderType) {
         },
         fire: {
             resistencia: {
-                ice: 50,
+                fire: 50,
+                ice: 30,
                 machine: 30,
                 heath: 20,
             },
