@@ -1,6 +1,7 @@
 "use client"
 import ErrorAlert from "@/components/errorAlert";
 import SucessAlert from "@/components/sucessAlert";
+import { IDigimon } from "@/interfaces/digimon";
 import { ILogin, IRegister, ITamer } from "@/interfaces/tamer";
 import { ITamerContextProps, ITamerProviderType } from "@/interfaces/userContext";
 import { AuthService } from "@/services/tamer/authService";
@@ -68,7 +69,9 @@ export function TamerProvider({ children }: ITamerProviderType) {
             console.error(error)
             setShowBack(false)
         }
+
     }
+
 
     useEffect(() => {
     }, [tamerData])

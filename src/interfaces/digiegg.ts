@@ -1,5 +1,6 @@
 import { ITamer } from '@/interfaces/tamer';
-export interface IDigimon {
+import { IDigimon } from './digimon';
+export interface IDigiEgg {
     id: string
     hp: number
     mp: number

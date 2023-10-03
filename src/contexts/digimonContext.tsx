@@ -1,11 +1,13 @@
 "use client"
 import ErrorAlert from "@/components/errorAlert";
-import { IDigimon } from "@/interfaces/digiegg";
-import { DigimonContextProps, DigimonProviderType } from "@/interfaces/digimonContext";
-import { EvolutionService } from "@/services/digimon/digivolveService";
-import { GetOneService } from "@/services/digimon/getOneService";
+import { IDigiEgg } from "@/interfaces/digiegg";
+import { DigimonContextProps, DigimonProviderType } from "@/interfaces/eggsContext";
+import { EvolutionService } from "@/services/eggs/digivolveService";
+import { GetOneService } from "@/services/eggs/getOneService";
 import { createContext, ReactNode, useState } from "react";
 import { ITamer } from '../interfaces/tamer'
+import { IDigimon } from "@/interfaces/digimon";
+import { getDiggimonService } from "@/services/digimons/getDigimon";
 
 
 export const DigimonContext = createContext<DigimonContextProps>({} as DigimonContextProps)
@@ -15,7 +17,7 @@ export function DigimonProvider({ children }: DigimonProviderType) {
 
     const [showEvolution, setShowEvolution] = useState(false);
 
-    const [digimon, setDigimon] = useState<IDigimon>({
+    const [digimon, setDigimon] = useState<IDigiEgg>({
         id: "",
         hp: 0,
         sprite: "",
@@ -90,6 +92,15 @@ export function DigimonProvider({ children }: DigimonProviderType) {
                 this.GetMyDigimon(data.id)
             } catch (error: any) {
                 console.error(error.response.data)
+            }
+        }
+
+        static async getDiggimon(id: string): Promise<IDigimon | void> {
+            try {
+                const digimon = await getDiggimonService(id)
+                return digimon
+            } catch (error: any) {
+                console.error(error)
             }
         }
     }
