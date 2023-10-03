@@ -14,7 +14,6 @@ export interface IDigimon {
     love: number
     health: number
     evolutions: IDigimon[]
-    tamer: ITamer
     evolutionHp: number
     evolutionMp: number
     evolutionDefense: number

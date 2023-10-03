@@ -5,7 +5,7 @@ import { DigimonContextProps, DigimonProviderType } from "@/interfaces/digimonCo
 import { EvolutionService } from "@/services/digimon/digivolveService";
 import { GetOneService } from "@/services/digimon/getOneService";
 import { createContext, ReactNode, useState } from "react";
-
+import { ITamer } from '../interfaces/tamer'
 
 
 export const DigimonContext = createContext<DigimonContextProps>({} as DigimonContextProps)
@@ -35,7 +35,18 @@ export function DigimonProvider({ children }: DigimonProviderType) {
         evolutionMp: 0,
         evolutionDefense: 0,
         evolutionSpeed: 0,
-        evolutionAptitude: 0
+        evolutionAptitude: 0,
+        points: 0,
+        trainingIntensity: 0,
+        inTraining: false,
+        trainingEnd: '',
+        trainingPoints: 0,
+        nextPoints: 0,
+        missions: [],
+        inMission: false,
+        missionReturn: '',
+        evolutions: [],
+
     })
 
     function splitUrl(url: string): string {
