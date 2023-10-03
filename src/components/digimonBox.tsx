@@ -33,10 +33,15 @@ const DigimonBox = ({ digiId }: { digiId: string }) => {
 
             {/* <Image width={500} height={500} src={digibg} alt="Digimon Sprite" className='absolute z-[-2] fill-dark animate-spin-slow  min-h-[500px] min-w-[500px] ' /> */}
             <div>
-                <div className='flex items-center flex-row'>
+                <div className='flex items-center flex-row'
+
+                >
                     <span className='mr-2 font-bold text-[#fff]'>HP</span>
                     <div className=' rounded-full w-[300px] h-3  bg-[#252525]' >
-                        <div className={`rounded-full w-[${(digimon?.atualHp / digimon?.evolutionHp) * 100}%] h-[100%] bg-red-600`}></div>
+                        <div
+                            className={`rounded-full w-[${(digimon?.atualHp / digimon?.evolutionHp) * 100}%] h-[100%] bg-red-600`}
+
+                        />
                     </div>
                 </div>
                 <div className='flex items-center flex-row'>

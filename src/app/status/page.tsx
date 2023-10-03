@@ -13,6 +13,8 @@ import def from '../../../assets/icons/def.png'
 import speed from '../../../assets/icons/speed.png'
 import stamina from '../../../assets/icons/stamina.png'
 import statusBox from '../../../assets/icons/statusBox.png'
+import unknown from '../../../assets/icons/unknown000.png'
+
 
 const Status = () => {
 
@@ -45,7 +47,7 @@ const Status = () => {
             <Appbar />
             {menu === 0 && (<MainMenu />)}
 
-            <div className='w-[100%] flex justify-center'>
+            <div className='w-[100%] flex justify-center sm:flex-col'>
                 <div className='absolute top-0 left-0 mb-32 z-0'>
                     <Image src={statusBox} alt='title'></Image>
                 </div>
@@ -64,7 +66,7 @@ const Status = () => {
                             </div> */}
                             <div className='flex flex-row '>
                                 <div className=' border border-[#f1f1f1] w-16 h-9 border-r-0 bg-[#979711] text-white flex items-center justify-center'>
-                                    <span>Max HP</span>
+                                    <span>HP</span>
                                 </div>
 
                                 <div className='bg-[rgba(37,37,37,0.8)] border border-[#6A6566] w-20 h-9 text-white flex justify-end p-2 items-center'>
@@ -74,7 +76,7 @@ const Status = () => {
 
                             <div className='flex flex-row'>
                                 <div className=' border border-[#6A6566] w-16 h-9 border-t-0 border-r-0 bg-[#4BA5C8] text-white flex items-center justify-center'>
-                                    <span>Max MP</span>
+                                    <span>MP</span>
                                 </div>
 
                                 <div className='bg-[rgba(37,37,37,0.8)] border border-[#6A6566] border-t-0 w-20 h-9 text-white flex justify-end p-2 items-center'>
@@ -151,7 +153,66 @@ const Status = () => {
 
 
                 </div>
-                <div></div>
+                <div className='border bg-[rgba(37,37,37,0.8)]  border-[#6A6566] mt-2 text-white items-center'>
+                    <span className='ml-2'>Evoluções</span>
+                </div>
+                <div className=' m-2 mt-0 flex flex-row flex-wrap justify-between '>
+
+
+                    <div className='w-[120px] h-[auto] m-2 flex justify-center flex-col items-center border bg-[rgba(37,37,37,0.5)]  border-[#6A6566]'>
+                        <div className='w-[100%] h-[100%] flex flex-row items-center justify-evenly p-1 text-white text-[20px] '>
+                            <Image src={unknown} alt="def" />
+
+                        </div>
+                        <div className='bg-[#414141] w-[100%] text-center text-white'>
+                            <span>Baby</span>
+                        </div>
+                    </div>
+
+
+                    <div className='w-[120px] h-[auto] m-2  flex justify-center flex-col items-center border bg-[rgba(37,37,37,0.5)]  border-[#6A6566]'>
+                        <div className='w-[100%] h-[100%] flex flex-row items-center justify-evenly p-1 text-white text-[20px] '>
+                            <Image src={unknown} alt="def" />
+
+                        </div>
+                        <div className='bg-[#414141] w-[100%] text-center text-white'>
+                            <span>Rookie</span>
+                        </div>
+                    </div>
+
+                    <div className='w-[120px] h-[auto] m-2 flex justify-center flex-col items-center border bg-[rgba(37,37,37,0.5)]  border-[#6A6566]'>
+                        <div className='w-[100%] h-[100%] flex flex-row items-center justify-evenly p-1 text-white text-[20px] '>
+                            <Image src={unknown} alt="def" />
+
+                        </div>
+                        <div className='bg-[#414141] w-[100%] text-center text-white'>
+                            <span>Champion</span>
+                        </div>
+                    </div>
+
+                    <div className='w-[120px] h-[auto] m-2 flex justify-center flex-col items-center border bg-[rgba(37,37,37,0.5)]  border-[#6A6566]'>
+                        <div className='w-[100%] h-[100%] flex flex-row items-center justify-evenly p-1 text-white text-[20px] '>
+                            <Image src={unknown} alt="def" />
+
+                        </div>
+                        <div className='bg-[#414141] w-[100%] text-center text-white'>
+                            <span>Ultimate</span>
+                        </div>
+                    </div>
+
+                    <div className='w-[120px] h-[auto] m-2 flex justify-center flex-col items-center border bg-[rgba(37,37,37,0.5)]  border-[#6A6566]'>
+                        <div className='w-[100%] h-[100%] flex flex-row items-center justify-evenly p-1 text-white text-[20px] '>
+                            <Image src={unknown} alt="def" />
+
+                        </div>
+                        <div className='bg-[#414141] w-[100%] text-center text-white'>
+                            <span>Mega</span>
+                        </div>
+                    </div>
+
+
+
+                </div>
             </div>
 
         </div >

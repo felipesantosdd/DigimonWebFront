@@ -100,6 +100,7 @@ export default function MainMenu() {
                         onClick={() => console.log('Bag')} />
                     <span className='font-bold text-white text-2xl ml-2'>Missões</span>
                 </div>
+                */}
                 <div className='flex flex-row items-center p-2'>
                     <Image
                         className='cursor-pointer rounded-s border-1 border-black;'
@@ -108,7 +109,7 @@ export default function MainMenu() {
                         src={exit} alt="exitIcon"
                         onClick={logOut} />
                     <span className='font-bold text-white text-2xl ml-2'>LogOut</span>
-                </div> */}
+                </div>
             </div>
         </div>
     )
