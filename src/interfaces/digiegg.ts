@@ -33,3 +33,10 @@ export interface IDigiEgg {
     inMission: boolean
     missionReturn: string
 }
+
+export interface IRelacoesElemento {
+    [key: string]: {
+        resistencia: { [key: string]: number };
+        fraqueza: { [key: string]: number };
+    };
+};

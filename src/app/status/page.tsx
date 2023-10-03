@@ -16,6 +16,7 @@ import stamina from '../../../assets/icons/stamina.png'
 import statusBox from '../../../assets/icons/statusBox.png'
 import unknown from '../../../assets/icons/unknown000.png'
 import { IDigimon } from '@/interfaces/digimon';
+import Resistances from '@/components/Resistances';
 
 
 const Status = () => {
@@ -24,8 +25,120 @@ const Status = () => {
 
     const { Digimon, digimon, splitUrl } = useContext(DigimonContext)
 
-    const [evolutions, setEvolutions] = useState<IDigimon[]>([])
-
+    const [baby, setBaby] = useState<IDigimon | undefined>({
+        id: '',
+        name: '',
+        level: 0,
+        species: '',
+        type: '',
+        attribute: '',
+        hp: 0,
+        mp: 0,
+        element: '',
+        attack: 0,
+        defense: 0,
+        speed: 0,
+        aptitude: 0,
+        cost: 0,
+        sprite: '',
+        description: '',
+        image: '',
+    })
+    const [rookie, setRookie] = useState<IDigimon | undefined>({
+        id: '',
+        name: '',
+        level: 0,
+        species: '',
+        type: '',
+        attribute: '',
+        hp: 0,
+        mp: 0,
+        element: '',
+        attack: 0,
+        defense: 0,
+        speed: 0,
+        aptitude: 0,
+        cost: 0,
+        sprite: '',
+        description: '',
+        image: '',
+    })
+    const [champion, setChampion] = useState<IDigimon | undefined>({
+        id: '',
+        name: '',
+        level: 0,
+        species: '',
+        type: '',
+        attribute: '',
+        hp: 0,
+        mp: 0,
+        element: '',
+        attack: 0,
+        defense: 0,
+        speed: 0,
+        aptitude: 0,
+        cost: 0,
+        sprite: '',
+        description: '',
+        image: '',
+    })
+    const [ultimate, setUltimate] = useState<IDigimon | undefined>({
+        id: '',
+        name: '',
+        level: 0,
+        species: '',
+        type: '',
+        attribute: '',
+        hp: 0,
+        mp: 0,
+        element: '',
+        attack: 0,
+        defense: 0,
+        speed: 0,
+        aptitude: 0,
+        cost: 0,
+        sprite: '',
+        description: '',
+        image: '',
+    })
+    const [mega, setMega] = useState<IDigimon | undefined>({
+        id: '',
+        name: '',
+        level: 0,
+        species: '',
+        type: '',
+        attribute: '',
+        hp: 0,
+        mp: 0,
+        element: '',
+        attack: 0,
+        defense: 0,
+        speed: 0,
+        aptitude: 0,
+        cost: 0,
+        sprite: '',
+        description: '',
+        image: '',
+    })
+    const [form, setForm] = useState<IDigimon | undefined>({
+        id: '',
+        name: '',
+        level: 0,
+        species: '',
+        type: '',
+        attribute: '',
+        hp: 0,
+        mp: 0,
+        element: '',
+        attack: 0,
+        defense: 0,
+        speed: 0,
+        aptitude: 0,
+        cost: 0,
+        sprite: '',
+        description: '',
+        image: '',
+    })
 
     useEffect(() => {
         Authentication()
@@ -35,14 +148,22 @@ const Status = () => {
         const digiId = tamerData?.digimons[0]?.id
         if (digiId) {
             Digimon.GetMyDigimon(digiId)
-            setEvolutions(digimon.evolutions)
         }
-    }, [tamerData])
+    }, [Digimon, tamerData])
 
-    console.log(digimon)
+    useEffect(() => {
+        setBaby(digimon.evolutions.find((digi: IDigimon) => digi.level === 1))
+        setRookie(digimon.evolutions.find((digi: IDigimon) => digi.level === 2))
+        setChampion(digimon.evolutions.find((digi: IDigimon) => digi.level === 3))
+        setUltimate(digimon.evolutions.find((digi: IDigimon) => digi.level === 4))
+        setMega(digimon.evolutions.find((digi: IDigimon) => digi.level === 5))
+        setForm(digimon.evolutions.find((digi: IDigimon) => digi.name === digimon.name))
+    }, [digimon])
+
+
 
     return (
-        <div className='flex justify-center w-[100vw] h-[100vh] m-0 p-0 '
+        <div className='flex justify-center w-[100vw] h-[100%] min-h-[100vh] m-0 p-0 '
             style={{
                 background: `url('https://image3.cdn2.seaart.ai/2023-09-30/18618260520967173/71daf74c937097dce438c77d448fe22ea6be24bc.png')`,
                 backgroundPosition: 'bottom',
@@ -50,16 +171,17 @@ const Status = () => {
                 backgroundAttachment: 'fixed'
             }}>
             <Appbar />
-            {menu === 0 && (<MainMenu />)}
+            <MainMenu />
 
-            <div className='w-[95%] flex justify-center sm:flex-col mb-24'>
+            <div className='w-[95%] flex justify-center sm:flex-col mb-24 items-center'>
                 <div className='absolute top-0 left-0 mb-32 z-0'>
                     <Image src={statusBox} alt='title'></Image>
                 </div>
 
-                <div className='flex-col flex justify-center mt-44'>
-                    <div className='flex flex-row  items-center justify-around h-40 '>
+                <div className='flex-col flex justify-center mt-24'>
+                    <div className='flex flex-row  items-center justify-around h-56 '>
                         <div>
+
                             <div className='flex flex-row '>
                                 <div className=' border border-[#f1f1f1] w-16 h-9 border-r-0 bg-[#979711] text-white flex items-center justify-center'>
                                     <span>HP</span>
@@ -85,13 +207,31 @@ const Status = () => {
 
                                 <div>
                                     <div className='border bg-[rgba(37,37,37,0.8)]  border-[#4e4e4e] border-b-0 w-36 h-5 text-white flex items-center justify-center'>
-                                        <span>Dragon</span>
+                                        <span>{form?.species}</span>
                                     </div>
 
                                     <div className='border bg-[rgba(37,37,37,0.8)]  border-[#6A6566]  h-5 text-white flex items-center justify-center'>
-                                        <span>Training</span>
+                                        <span>
+                                            {(() => {
+                                                switch (digimon.form) {
+                                                    case 1:
+                                                        return 'Baby';
+                                                    case 2:
+                                                        return 'Rookie';
+                                                    case 3:
+                                                        return 'Champion';
+                                                    case 4:
+                                                        return 'Ultimate';
+                                                    case 5:
+                                                        return 'Mega';
+                                                    default:
+                                                        return 'Egg';
+                                                }
+                                            })()}
+                                        </span>
                                     </div>
                                 </div>
+
                             </div>
                         </div>
 
@@ -148,7 +288,10 @@ const Status = () => {
                     </div>
 
 
+                    <Resistances />
                 </div>
+
+
                 <div>
                     <div className='border bg-[rgba(37,37,37,0.8)]  border-[#6A6566] mt-2 text-white items-center'>
                         <span className='ml-2'>Evoluções</span>
@@ -158,9 +301,9 @@ const Status = () => {
 
                         <div className='w-[120px] h-[auto] mt-2 flex justify-center flex-col items-center border bg-[rgba(37,37,37,0.5)] border-[#6A6566]'>
                             <div className='w-[100%] h-[100%] flex flex-row items-center justify-evenly p-1 text-white text-[20px] '>
-                                {digimon?.evolutions?.find((digi: IDigimon) => digi.level === 1)?.sprite ? (
+                                {baby !== undefined ? (
                                     <img
-                                        src={`${splitUrl(digimon.evolutions.find((digi: IDigimon) => digi.level === 1)?.sprite)}.gif`}
+                                        src={`${splitUrl(baby.sprite)}.gif`}
                                         alt="def"
                                     />
                                 ) : (
@@ -174,11 +317,12 @@ const Status = () => {
 
 
 
+
                         <div className='w-[120px] h-[auto] mt-2 flex justify-center flex-col items-center border bg-[rgba(37,37,37,0.5)] border-[#6A6566]'>
                             <div className='w-[100%] h-[100%] flex flex-row items-center justify-evenly p-1 text-white text-[20px] '>
-                                {digimon?.evolutions?.find((digi: IDigimon) => digi.level === 2)?.sprite ? (
+                                {rookie !== undefined ? (
                                     <img
-                                        src={`${splitUrl(digimon?.evolutions?.find((digi: IDigimon) => digi.level === 2)?.sprite)}.gif`}
+                                        src={`${splitUrl(rookie.sprite)}.gif`}
                                         alt="def"
                                     />
                                 ) : (
@@ -193,9 +337,9 @@ const Status = () => {
 
                         <div className='w-[120px] h-[auto] mt-2 flex justify-center flex-col items-center border bg-[rgba(37,37,37,0.5)] border-[#6A6566]'>
                             <div className='w-[100%] h-[100%] flex flex-row items-center justify-evenly p-1 text-white text-[20px] '>
-                                {digimon?.evolutions?.find((digi: IDigimon) => digi.level === 3)?.sprite ? (
+                                {champion !== undefined ? (
                                     <img
-                                        src={`${splitUrl(digimon?.evolutions.find((digi: IDigimon) => digi.level === 3)?.sprite)}.gif`}
+                                        src={`${splitUrl(champion.sprite)}.gif`}
                                         alt="def"
                                     />
                                 ) : (
@@ -210,9 +354,9 @@ const Status = () => {
 
                         <div className='w-[120px] h-[auto] mt-2 flex justify-center flex-col items-center border bg-[rgba(37,37,37,0.5)] border-[#6A6566]'>
                             <div className='w-[100%] h-[100%] flex flex-row items-center justify-evenly p-1 text-white text-[20px] '>
-                                {digimon?.evolutions?.find((digi: IDigimon) => digi.level === 4)?.sprite ? (
+                                {ultimate !== undefined ? (
                                     <img
-                                        src={`${splitUrl(digimon?.evolutions.find((digi: IDigimon) => digi.level === 4)?.sprite)}.gif`}
+                                        src={`${splitUrl(ultimate.sprite)}.gif`}
                                         alt="def"
                                     />
                                 ) : (
@@ -226,9 +370,9 @@ const Status = () => {
 
                         <div className='w-[120px] h-[auto] mt-2 flex justify-center flex-col items-center border bg-[rgba(37,37,37,0.5)] border-[#6A6566]'>
                             <div className='w-[100%] h-[100%] flex flex-row items-center justify-evenly p-1 text-white text-[20px] '>
-                                {digimon?.evolutions?.find((digi: IDigimon) => digi.level === 5)?.sprite ? (
+                                {mega !== undefined ? (
                                     <img
-                                        src={`${splitUrl(digimon?.evolutions?.find((digi: IDigimon) => digi?.level === 5)?.sprite)}.gif`}
+                                        src={`${splitUrl(mega.sprite)}.gif`}
                                         alt="def"
                                     />
                                 ) : (

@@ -1,6 +1,6 @@
 "use client"
 import ErrorAlert from "@/components/errorAlert";
-import { IDigiEgg } from "@/interfaces/digiegg";
+import { IDigiEgg, IRelacoesElemento } from "@/interfaces/digiegg";
 import { DigimonContextProps, DigimonProviderType } from "@/interfaces/eggsContext";
 import { EvolutionService } from "@/services/eggs/digivolveService";
 import { GetOneService } from "@/services/eggs/getOneService";
@@ -50,6 +50,127 @@ export function DigimonProvider({ children }: DigimonProviderType) {
         evolutions: [],
 
     })
+
+    const relacoes: IRelacoesElemento = {
+        water: {
+            resistencia: {
+                fire: 50,
+                spark: 30,
+                heath: 20,
+            },
+            fraqueza: {
+                ice: -30,
+                holy: -20,
+                plant: -10,
+            },
+        },
+        fire: {
+            resistencia: {
+                ice: 50,
+                machine: 30,
+                heath: 20,
+            },
+            fraqueza: {
+                water: -30,
+                wind: -20,
+                dark: -10,
+            },
+        },
+        ice: {
+            resistencia: {
+                fire: 50,
+                wind: 30,
+                dark: 20,
+            },
+            fraqueza: {
+                heath: -30,
+                fire: -20,
+                thunder: -10,
+            },
+        },
+        holy: {
+            resistencia: {
+                dark: 50,
+                thunder: 30,
+                machine: 20,
+            },
+            fraqueza: {
+                plant: -30,
+                water: -20,
+                fire: -10,
+            },
+        },
+        dark: {
+            resistencia: {
+                holy: -50,
+                fire: 20,
+            },
+            fraqueza: {
+                thunder: -20,
+                wind: -10,
+            },
+        },
+        thunder: {
+            resistencia: {
+                water: 50,
+                machine: 30,
+                fire: 20,
+            },
+            fraqueza: {
+                heath: -30,
+                ice: -20,
+                dark: -10,
+            },
+        },
+        machine: {
+            resistencia: {
+                fire: 50,
+                wind: 30,
+                plant: 20,
+            },
+            fraqueza: {
+                water: -30,
+                heath: -20,
+                thunder: -10,
+            },
+        },
+        wind: {
+            resistencia: {
+                heath: 50,
+                dark: 30,
+                thunder: 20,
+            },
+            fraqueza: {
+                machine: -30,
+                fire: -20,
+                ice: -10,
+            },
+        },
+        plant: {
+            resistencia: {
+                fire: 50,
+                heath: 30,
+                water: 20,
+            },
+            fraqueza: {
+                dark: -30,
+                thunder: -20,
+                machine: -10,
+            },
+        },
+        heath: {
+            resistencia: {
+                thunder: 50,
+                ice: 30,
+                plant: 20,
+            },
+            fraqueza: {
+                fire: -30,
+                water: -20,
+                wind: -10,
+            },
+        },
+    };
 
     function splitUrl(url: string): string {
         const lastDotIndex = url?.lastIndexOf('.');
@@ -110,6 +231,7 @@ export function DigimonProvider({ children }: DigimonProviderType) {
             showEvolution,
             setShowEvolution,
             digimon,
+            relacoes,
             splitUrl,
             setDigimon,
             Digimon: {

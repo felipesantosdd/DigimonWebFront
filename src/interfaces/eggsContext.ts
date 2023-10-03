@@ -1,5 +1,5 @@
 import { Dispatch, ReactNode, SetStateAction } from "react";
-import { IDigiEgg } from "./digiegg";
+import { IDigiEgg, IRelacoesElemento } from "./digiegg";
 
 export type DigimonContextProps = {
     splitUrl: (url: string) => string;
@@ -7,6 +7,7 @@ export type DigimonContextProps = {
     setShowEvolution: Dispatch<SetStateAction<boolean>>;
     digimon: IDigiEgg;
     setDigimon: Dispatch<SetStateAction<IDigiEgg>>;
+    relacoes: IRelacoesElemento;
     Digimon: {
         GetOne: (id: string) => Promise<any>;
         GetMyDigimon: (id: string) => Promise<void>
