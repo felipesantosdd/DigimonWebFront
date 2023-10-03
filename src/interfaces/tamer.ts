@@ -1,5 +1,5 @@
 import { string } from "yup";
-import { IDigimon } from "./digiegg";
+import { IDigiEgg } from "./digiegg";
 
 export interface IRegister {
     name: string;
@@ -23,7 +23,7 @@ export interface ITamer {
     atualEnergy: number;
     xp: number;
     image: string;
-    digimons: IDigimon[];
+    digimons: IDigiEgg[];
     bag: any[];
 }
 
