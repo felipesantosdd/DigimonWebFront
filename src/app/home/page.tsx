@@ -28,13 +28,11 @@ const Home = () => {
 
     return (
         <div
-            className='flex justify-center w-[100vw] h-[100vh] overflow-hidden m-0 p-0 '
+            className='flex justify-center w-[100vw] min-h-[100vh] overflow-hidden m-0 p-0 '
             style={{
                 background: `url('https://image3.cdn2.seaart.ai/2023-09-30/18618260520967173/71daf74c937097dce438c77d448fe22ea6be24bc.png')`,
                 backgroundPosition: 'bottom',
                 backgroundSize: 'cover',
-
-
             }}>
             <Backdrop status={showBack} />
             <Appbar />

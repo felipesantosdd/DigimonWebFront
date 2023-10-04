@@ -1,5 +1,5 @@
 import type { Config } from 'tailwindcss'
-
+const defaultTheme = require("tailwindcss/defaultTheme")
 const config: Config = {
   content: [
     './src/pages/**/*.{js,ts,jsx,tsx,mdx}',
@@ -13,6 +13,9 @@ const config: Config = {
         'gradient-conic':
           'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
       },
+      fontFamily: {
+        'sans': ['"Inknut Antiqua"', ...defaultTheme.fontFamily.sans],
+     },
       animation: {
         'spin-slow': 'spin 20s linear infinite',
         'open-menu': 'openMenu 0.5s linear',
