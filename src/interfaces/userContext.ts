@@ -14,7 +14,8 @@ export interface ITamerContextProps {
     setShowBack: React.Dispatch<React.SetStateAction<boolean>>;
     Login: (data: ILogin) => Promise<void>;
     Register: (data: IRegister) => Promise<void>;
-    Authentication: () => Promise<void>
+    Authentication: () => Promise<void>,
+    useItem: (itemId: string, eggId: string) => Promise<any>
 
 }
 

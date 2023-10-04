@@ -4,7 +4,6 @@ import Backdrop from '@/components/backdrop';
 import DigimonBox from '@/components/digimonBox';
 import EvolutionAnimation from '@/components/evolutionAnimation';
 import MainMenu from '@/components/mainMenu';
-import MenuEvolutions from '@/components/menuEvolutions';
 import { DigimonContext } from '@/contexts/digimonContext';
 import { TamerContext } from '@/contexts/tamerContext';
 import React, { useContext, useEffect } from 'react';
@@ -45,8 +44,6 @@ const Home = () => {
 
             {showEvolution && (<EvolutionAnimation />)}
             {menu === 0 && (<MainMenu />)}
-            {menu === 1 && (<MenuEvolutions />)}
-
 
         </div>
     );

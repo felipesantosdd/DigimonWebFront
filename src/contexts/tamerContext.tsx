@@ -7,10 +7,18 @@ import { ITamerContextProps, ITamerProviderType } from "@/interfaces/userContext
 import { AuthService } from "@/services/tamer/authService";
 import { LoginService } from "@/services/tamer/loginService";
 import { RegisterService } from "@/services/tamer/registerService";
+import { UserItemService } from "@/services/tamer/useItem";
 import { useRouter } from "next/router";
 import React, { createContext, useEffect, useState } from "react";
 
-
+interface IError {
+    response: {
+        data: {
+            message: string;
+            statusCode: number;
+        };
+    }
+}
 
 export const TamerContext = createContext<ITamerContextProps>({} as ITamerContextProps)
 
@@ -72,6 +80,22 @@ export function TamerProvider({ children }: ITamerProviderType) {
 
     }
 
+    async function useItem(itemId: string, eggId: string) {
+        try {
+            const response = await UserItemService(tamerData.id, { itemId, eggId })
+            return response
+        } catch (error: any) {
+            const erro: IError = error
+            if (erro.response.data.message) {
+                ErrorAlert(erro.response.data.message)
+                console.error(erro.response.data.message)
+            } else {
+                console.error(error)
+            }
+        }
+
+    }
+
 
     useEffect(() => {
     }, [tamerData])
@@ -90,7 +114,8 @@ export function TamerProvider({ children }: ITamerProviderType) {
             Register,
             showBack,
             setShowBack,
-            Authentication
+            Authentication,
+            useItem
         }}> {children}</TamerContext.Provider >
     )
 }
