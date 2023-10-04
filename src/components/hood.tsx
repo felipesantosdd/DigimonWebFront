@@ -4,7 +4,7 @@ import React, { useContext, useEffect, useState } from 'react'
 
 const Hood = ({ digiEgg }: { digiEgg: IDigiEgg }) => {
 
-    const { splitUrl } = useContext(DigimonContext)
+    const form = digiEgg.evolutions.find((evo) => evo.name === digiEgg.name)
 
 
     return (
@@ -15,7 +15,7 @@ const Hood = ({ digiEgg }: { digiEgg: IDigiEgg }) => {
             <div className='flex flex-row'>
 
                 <div className='p-2 h-[auto] border-t-0 flex justify-center flex-col items-center border bg-[rgba(37,37,37,0.5)] border-[#6A6566]'>
-                    <img className='h-36 w-full' src={`${splitUrl(digiEgg?.sprite)}.gif`} alt="Digimon Sprite" />
+                    <img className='h-[220px] w-[215px]' src={form?.image} alt="Digimon Sprite" />
                 </div>
 
                 <div className='flex flex-col w-[100%]  ' >

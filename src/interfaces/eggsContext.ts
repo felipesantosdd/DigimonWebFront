@@ -11,7 +11,7 @@ export type DigimonContextProps = {
     Digimon: {
         GetOne: (id: string) => Promise<any>;
         GetMyDigimon: (id: string) => Promise<void>
-        Evolution: (id: string, evoId: string) => Promise<void>
+        Evolution: (evoId: string) => Promise<void>
     }
 }
 

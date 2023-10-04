@@ -141,6 +141,13 @@ const Status = () => {
         image: '',
     })
 
+    async function handleEvolution(evolutionId: string | undefined) {
+        if (evolutionId !== undefined) {
+            await Digimon.Evolution(evolutionId)
+            Authentication()
+        }
+    }
+
     useEffect(() => {
         Authentication()
     }, [])
@@ -164,7 +171,7 @@ const Status = () => {
 
 
     return (
-        <div className='flex justify-center w-[100vw] h-[100%] min-h-[100vh] m-0 p-0 '
+        <div className='flex justify-center  h-[100%] min-h-[100vh] m-0 p-0 '
             style={{
                 background: `url('https://image3.cdn2.seaart.ai/2023-09-30/18618260520967173/71daf74c937097dce438c77d448fe22ea6be24bc.png')`,
                 backgroundPosition: 'bottom',
@@ -174,9 +181,9 @@ const Status = () => {
             <Appbar />
             <MainMenu />
 
-            <div className='w-[95%] flex justify-center sm:flex-col mb-24 items-center'>
+            <div className='w-[95%] flex justify-center sm:flex-col mb-10 items-center'>
                 <div className='absolute top-0 left-0 mb-32 z-0'>
-                    <Image src={statusBox} alt='title'></Image>
+                    <Image src={statusBox} alt='title' />
                 </div>
 
                 <div className='flex-col flex justify-center mt-24'>
@@ -314,14 +321,16 @@ const Status = () => {
                     <div className='border bg-[rgba(37,37,37,0.8)]  border-[#6A6566] mt-2 text-white items-center'>
                         <span className='ml-2'>Evoluções</span>
                     </div>
-                    <div className=' m-2 mt-0 flex flex-row flex-wrap justify-around '>
+                    <div className='flex flex-row flex-wrap justify-evenly '>
 
 
                         <div className='w-[120px] h-[auto] mt-2 flex justify-center flex-col items-center border bg-[rgba(37,37,37,0.5)] border-[#6A6566]'>
-                            <div className='w-[100%] h-[100%] flex flex-row items-center justify-evenly p-1 text-white text-[20px] '>
+                            <div
+                                onClick={() => handleEvolution(baby?.id)}
+                                className='w-[100%] h-[100%] flex flex-row items-center justify-evenly p-1 text-white text-[20px] '>
                                 {baby !== undefined ? (
                                     <img
-                                        src={`${splitUrl(baby.sprite)}.gif`}
+                                        src={baby.image}
                                         alt="def"
                                     />
                                 ) : (
@@ -336,11 +345,13 @@ const Status = () => {
 
 
 
-                        <div className='w-[120px] h-[auto] mt-2 flex justify-center flex-col items-center border bg-[rgba(37,37,37,0.5)] border-[#6A6566]'>
+                        <div
+                            onClick={() => handleEvolution(rookie?.id)}
+                            className='w-[120px] h-[auto] mt-2 flex justify-center flex-col items-center border bg-[rgba(37,37,37,0.5)] border-[#6A6566]'>
                             <div className='w-[100%] h-[100%] flex flex-row items-center justify-evenly p-1 text-white text-[20px] '>
                                 {rookie !== undefined ? (
                                     <img
-                                        src={`${splitUrl(rookie.sprite)}.gif`}
+                                        src={rookie.image}
                                         alt="def"
                                     />
                                 ) : (
@@ -353,11 +364,13 @@ const Status = () => {
                         </div>
 
 
-                        <div className='w-[120px] h-[auto] mt-2 flex justify-center flex-col items-center border bg-[rgba(37,37,37,0.5)] border-[#6A6566]'>
+                        <div
+                            onClick={() => handleEvolution(champion?.id)}
+                            className='w-[120px] h-[auto] mt-2 flex justify-center flex-col items-center border bg-[rgba(37,37,37,0.5)] border-[#6A6566]'>
                             <div className='w-[100%] h-[100%] flex flex-row items-center justify-evenly p-1 text-white text-[20px] '>
                                 {champion !== undefined ? (
                                     <img
-                                        src={`${splitUrl(champion.sprite)}.gif`}
+                                        src={champion.image}
                                         alt="def"
                                     />
                                 ) : (
@@ -370,11 +383,13 @@ const Status = () => {
                         </div>
 
 
-                        <div className='w-[120px] h-[auto] mt-2 flex justify-center flex-col items-center border bg-[rgba(37,37,37,0.5)] border-[#6A6566]'>
+                        <div
+                            onClick={() => handleEvolution(ultimate?.id)}
+                            className='w-[120px] h-[auto] mt-2 flex justify-center flex-col items-center border bg-[rgba(37,37,37,0.5)] border-[#6A6566]'>
                             <div className='w-[100%] h-[100%] flex flex-row items-center justify-evenly p-1 text-white text-[20px] '>
                                 {ultimate !== undefined ? (
                                     <img
-                                        src={`${splitUrl(ultimate.sprite)}.gif`}
+                                        src={ultimate.image}
                                         alt="def"
                                     />
                                 ) : (
@@ -386,11 +401,13 @@ const Status = () => {
                             </div>
                         </div>
 
-                        <div className='w-[120px] h-[auto] mt-2 flex justify-center flex-col items-center border bg-[rgba(37,37,37,0.5)] border-[#6A6566]'>
+                        <div
+                            onClick={() => handleEvolution(mega?.id)}
+                            className='w-[120px] h-[auto] mt-2 flex justify-center flex-col items-center border bg-[rgba(37,37,37,0.5)] border-[#6A6566]'>
                             <div className='w-[100%] h-[100%] flex flex-row items-center justify-evenly p-1 text-white text-[20px] '>
                                 {mega !== undefined ? (
                                     <img
-                                        src={`${splitUrl(mega.sprite)}.gif`}
+                                        src={mega.image}
                                         alt="def"
                                     />
                                 ) : (

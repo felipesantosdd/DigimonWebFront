@@ -66,6 +66,8 @@ export default function MainMenu() {
     }
 
 
+
+
     return (
         <Menu>
             {content === 0 && (

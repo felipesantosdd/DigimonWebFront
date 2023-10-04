@@ -207,9 +207,10 @@ export function DigimonProvider({ children }: DigimonProviderType) {
             }
         }
 
-        static async Evolution(id: string, evoId: string): Promise<void> {
+        static async Evolution(evoId: string): Promise<void> {
             try {
-                const data = await EvolutionService(id, evoId)
+                const data = await EvolutionService(digimon.id, evoId)
+                console.log(data)
                 setDigimon(data)
                 this.GetMyDigimon(data.id)
             } catch (error: any) {
