@@ -12,15 +12,21 @@ export default function Home() {
 
   return (
     <main
-      className="flex w-screen h-screen justify-center items-center"
+      className="flex w-screen min-h-screen justify-center items-center overflow-x-hidden"
       style={{
-        background: `url('https://static.vecteezy.com/system/resources/previews/001/987/871/non_2x/abstract-black-stripes-diagonal-background-free-vector.jpg')`,
-        backgroundSize: 'center',
+       
       }}
     >
+      {
+        /*
+      
       <div className='absolute w-[100%] h-[100%]'>
 
       </div>
+      */ 
+    }
+      
+     
       <Backdrop status={showBack} />
       <div className='flex flex-col justify-center text-center'>
 

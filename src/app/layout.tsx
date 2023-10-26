@@ -18,6 +18,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className='flex justify-center items-center'>
+      
       <TamerProvider>
         <DigimonProvider>
           <body className={inter.className}>{children}</body>

@@ -1,13 +1,19 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
+ 
+@import url('https://fonts.googleapis.com/css2?family=Baloo+2:wght@700;800&family=Roboto:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inknut+Antiqua:wght@400;700;800&display=swap');
+ 
 :root {
   --foreground-rgb: "#252525";
   --background-start-rgb: 214, 219, 220;
   --background-end-rgb: 255, 255, 255;
 }
-
+*{
+  box-sizing: border-box;
+  
+}
 @media (prefers-color-scheme: dark) {
   :root {
     --background-start-rgb: 0, 0, 0;
@@ -20,6 +26,8 @@ body {
   background: linear-gradient(to bottom,
       transparent,
       rgb(var(--background-end-rgb))) rgb(var(--background-start-rgb));
+      box-sizing: border-box;
+
 }
 
 .cube {
@@ -187,5 +195,29 @@ body {
 
   75% {
     transform: rotateY(-180deg) translateZ(50px);
+  }
+}
+
+input{
+  outline: transparent;
+}
+ 
+input[type="password"] {
+  -webkit-appearance: none;
+   appearance: none;
+}
+input[type="password"]::-ms-reveal,
+input[type="password"]::-ms-clear {
+  display: none;
+}
+
+input[type="password"]::-webkit-contacts-auto-fill-button,
+input[type="password"]::-webkit-credentials-auto-fill-button {
+  display: none !important;
+}
+
+@media (max-width:520px){
+  html,body{
+    font-size: 87.5%;
   }
 }
